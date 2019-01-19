@@ -47,7 +47,7 @@ def get_incidents(**kwargs):
 
 
 if __name__ == "__main__":
-	call_pd(since="17-01-2019", until="19-01-2019", team_id="PAE6H7O", api_key="")
+	print (get_incidents(since="18-01-2019", until="19-01-2019", team_id="PAE6H7O", api_key=""))
 
 
 

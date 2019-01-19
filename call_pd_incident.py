@@ -1,7 +1,7 @@
 import requests
 
 # method to make api calls to pagerduty
-def call_pd(**kwargs):
+def get_incidents(**kwargs):
 	since = kwargs.get("since")
 	until = kwargs.get("until")
 	team_id = kwargs.get("team_id")
@@ -47,7 +47,7 @@ def call_pd(**kwargs):
 
 
 if __name__ == "__main__":
-	call_pd(since="17-01-2019", until="19-01-2019", team_id="PAE6H7O", api_key="RyxhPFNFfzsYnjsY4G-R")
+	call_pd(since="17-01-2019", until="19-01-2019", team_id="PAE6H7O", api_key="")
 
 
 

@@ -3,7 +3,7 @@ import json
 
 def main():
     headers = {
-        "Authorization": "Token token=RyxhPFNFfzsYnjsY4G-R",
+        "Authorization": "Token token=",
         "Accept": "application/vnd.pagerduty+json;version=2"
     }
 

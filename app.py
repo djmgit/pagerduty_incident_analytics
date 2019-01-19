@@ -29,7 +29,7 @@ def incident_analytics():
 	until = request.args.get("until")
 	team = request.args.get("team")
 	team_id = request.args.get("team_id")
-	urgency = request.args.get("urgency")
+	urgency = request.args.get("urgency", "high")
 
 	response = get_incident_frequency(since=since, until=until, team=team, team_id=team_id, urgency=urgency)
 

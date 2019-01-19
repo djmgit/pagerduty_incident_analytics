@@ -15,8 +15,8 @@ def main():
         "team_ids[]": "PAE6H7O",
         "urgencies[]": "high",
         "time_zone": "UTC",
-        "limit": "1",
-        "offset": "89"
+        "limit": 1,
+        "offset": 89
     }
 
     r = requests.request("GET", url, headers=headers, params=payload)

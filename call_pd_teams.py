@@ -19,8 +19,7 @@ def get_teams(**kwargs):
 	respose_length = 100
 
 	# get all teams
-	while True:
-		
+	while True:	
 		payload["offset"] = count * respose_length
 
 		response = requests.request("GET", URL, headers=headers, params=payload)
@@ -30,8 +29,9 @@ def get_teams(**kwargs):
 		if len(current_teams) != 0:
 			teams += current_teams
 		else:
-			print ("done")
 			break
+
+		count += 1
 
 	return teams
 

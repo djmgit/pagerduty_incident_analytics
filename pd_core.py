@@ -50,11 +50,13 @@ def get_incident_frequency(**kwargs):
 
 def get_all_teams():
 	api_key = config["API"]["API_KEY"]
-	return get_teams(api_key)
+	return get_teams(api_key=api_key)
 
 if __name__ == "__main__":
-	r = get_incident_frequency(since="18-01-2019", until="19-01-2019", team="CM", team_id='PAE6H7O')
-	print ("\n")
-	print (r["incident_frequencies"][0])
-	print ("\n")
-	print (r["incident_frequencies"][1])
+	#r = get_incident_frequency(since="18-01-2019", until="19-01-2019", team="CM", team_id='PAE6H7O')
+	#print ("\n")
+	#print (r["incident_frequencies"][0])
+	#print ("\n")
+	#print (r["incident_frequencies"][1])
+
+	get_all_teams()

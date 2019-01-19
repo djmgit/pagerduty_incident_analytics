@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = "THIS IS SECRET"
 CORS(app)
 path = os.path.dirname(os.path.abspath(__file__))
 
-@app.route("/api/v1/get_teams")
+@app.route("/api/v1/teams")
 def get_teams():
 	all_teams = get_all_teams()
 
@@ -22,3 +22,18 @@ def get_teams():
 	}
 
 	return jsonify(response)
+
+@app.route("/api/v1/incident_analytics")
+def incident_analytics():
+	since = request.args.get("since")
+	until = request.args.get("until")
+	team = request.args.get("team")
+	team_id = request.args.get("team_id")
+	urgency = request.args.get("urgency")
+
+	response = get_incident_frequency(since=since, until=until, team=team, team_id=team_id, urgency=urgency)
+
+	return jsonify(response)
+
+if __name__ == "__main__":
+	app.run(debug=True)

@@ -12,7 +12,7 @@ def get_incident_frequency(**kwargs):
 	team_id = kwargs.get("team_id")
 	urgencies = kwargs.get("urgency", "high")
 
-	api_key = config[team]["API_KEY"]
+	api_key = config["API"]["API_KEY"]
 
 	incidents = get_incidents(since=since, until=until, team_id=team_id, urgencies=urgencies, api_key=api_key)
 	incident_frequency = {}
@@ -37,6 +37,7 @@ def get_incident_frequency(**kwargs):
 	incident_frequency_list.reverse()
 
 	response = {
+		"status": "OK",
 		"unique_incident_count": len(incident_frequency_list),
 		"incident_frequencies": incident_frequency_list,
 		"since": since,
@@ -46,6 +47,10 @@ def get_incident_frequency(**kwargs):
 	}
 
 	return response
+
+def get_all_teams():
+	api_key = config["API"]["API_KEY"]
+	return get_teams(api_key)
 
 if __name__ == "__main__":
 	r = get_incident_frequency(since="18-01-2019", until="19-01-2019", team="CM", team_id='PAE6H7O')

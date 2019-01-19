@@ -1,4 +1,5 @@
 import requests
+import configparser
 
 # method to make api calls to pagerduty
 def get_incidents(**kwargs):
@@ -47,8 +48,9 @@ def get_incidents(**kwargs):
 
 
 if __name__ == "__main__":
-	print (get_incidents(since="18-01-2019", until="19-01-2019", team_id="PAE6H7O", api_key=""))
-
+	config = configparser.ConfigParser()
+	config.read('appconfig.conf')
+	print (get_incidents(since="18-01-2019", until="19-01-2019", team_id="PAE6H7O", api_key=config["CM"]["API_KEY"]))
 
 
 

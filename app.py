@@ -35,5 +35,10 @@ def incident_analytics():
 
 	return jsonify(response)
 
+# serve the app root
+@app.route("/")
+def index():
+	return render_template("index.html")
+
 if __name__ == "__main__":
 	app.run(debug=True)

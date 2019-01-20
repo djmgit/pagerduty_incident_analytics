@@ -14,8 +14,20 @@ app.controller('myCtrl', function($scope, $http) {
 		})
 	}
 
+	$scope.getTeam = function(team_id) {
+		for (var index = 0; index < $scope.teams.length; index++) {
+			if ($scope.teams[index].id == team_id) {
+				
+				return $scope.teams[index]
+			}
+		}
+	}
+
 	$scope.fetch = function() {
-		
+		var team = $scope.getTeam($scope.team);
+		$http.get("/api/v1/incident_analytics?since=" + $scope.since + "&until=" + $scope.until + "&team_id=" + team.id + "&team=" + team.name + "&urgency=" + $scope.urgency).then(function(response) {
+			console.log(response)
+		});
 	}
 
 

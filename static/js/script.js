@@ -2,6 +2,7 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
 	$scope.showData = false;
+	$scope.loader = false;
 
 	$scope.click = function() {
 		console.log($scope.team);
@@ -73,6 +74,7 @@ app.controller('myCtrl', function($scope, $http) {
 
 	$scope.fetch = function() {
 		var team = $scope.getTeam($scope.team);
+		$scope.loader = true;
 		$http.get("/api/v1/incident_analytics?since=" + $scope.since + "&until=" + $scope.until + "&team_id=" + team.id + "&team=" + team.name + "&urgency=" + $scope.urgency).then(function(response) {
 			console.log(response.data);
 			$scope.incident_frequencies = response.data.incident_frequencies;
@@ -83,6 +85,7 @@ app.controller('myCtrl', function($scope, $http) {
 			}
 			$scope.visualize($scope.incident_frequencies)
 			$scope.showData = true;
+			$scope.loader = false;
 		});
 	}
 

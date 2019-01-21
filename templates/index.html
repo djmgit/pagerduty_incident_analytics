@@ -57,7 +57,10 @@
   							<input type="text" class="form-control" id="limit" class="limit" ng-model="limit" placeholder="Enter limit">
 						</div>
 					</div>
-					<button type="button" class="fetch btn btn-default" ng-click="fetch()">Fetch incidents</button>
+					<div class="button-and-loader">
+						<button type="button" class="fetch btn btn-default" ng-click="fetch()">Fetch incidents</button>
+						<div class="loader" ng-show="loader"></div>
+					</div>
 				</div>
 			</div>
 			<div class="col-md-10">
@@ -83,8 +86,7 @@
 							</tbody>
 						</table>
 					</div>
-				</div>
-				 <div class="loader"></div> 
+				</div> 
 			</div>
 		</div>
     </body>

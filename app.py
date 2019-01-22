@@ -12,6 +12,10 @@ app.config['SECRET_KEY'] = "THIS IS SECRET"
 CORS(app)
 path = os.path.dirname(os.path.abspath(__file__))
 
+# parse app config
+config = configparser.ConfigParser()
+config.read('appconfig.conf')
+
 @app.route("/api/v1/teams")
 def get_teams():
 	all_teams = get_all_teams()
@@ -42,4 +46,5 @@ def index():
 	return render_template("index.html")
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	port = int(config["DEPLOY"]["PORT"])
+	app.run(debug=True, port=port)
